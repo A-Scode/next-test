@@ -1,0 +1,44 @@
+.iconContainer{
+    display: flex;
+    gap : 20px;
+}
+.footerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* position: absolute; */
+    /* bottom: 0; */
+}
+.iconContainer img:hover{
+    transform: scale(1.5);
+    transition: transform 0.05s ease-in;
+    animation: 3s linear infinite iconShadow;
+}
+.iconContainer img{
+    transition: transform 0.25s ease-in;
+    border-radius: 20px;
+    
+}
+
+@keyframes iconShadow {
+    0%{
+        box-shadow: 0px 0px 5px 0px hsl(36, 100%, 50%);
+    }
+    25%{
+        box-shadow: 0px 0px 10px 1px hsl(60, 100%, 51%);
+    }
+    75%{
+        box-shadow: 0px 0px 10px 1px hsl(196, 100%, 50%);
+    }
+    100%{
+        box-shadow: 0px 0px 5px 0px hsl(36, 100%, 50%);
+    }
+}
+
+@media (max-width : 760px){
+    .iconContainer{
+        flex:1;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,25 @@
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-green);
+    padding : 10px 30px;
+    flex-wrap: wrap;
+}
+
+.mainContainer li{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap : 20px;
+}
+.mainContainer ul{
+    display: flex;
+    align-items: center;
+}
+.mainContainer div{
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+}

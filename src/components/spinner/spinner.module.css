@@ -1,0 +1,32 @@
+.spinner{
+    height: 80px;
+    width: 80px;
+    display: block;
+    border-width: 0px;
+    /* border-width: 10px; */
+    /* border-color: rgb(9, 255, 0); */
+    border-radius: 50px;
+    border-style: solid;
+    animation-name: spin; 
+    animation-duration:.75s;
+    animation-timing-function:  linear;
+    animation-iteration-count:  infinite;
+}
+@keyframes spin {
+    0%{
+        border-left-width: 20px;
+        border-color: var(--text-gradient-yellow);
+    }
+    25%{
+        border-top-width: 20px;
+        border-color: var(--text-gradient-cyan);
+    }
+    75%{
+        border-right-width: 20px;
+        border-color: var(--text-gradient-yellow);
+    }
+    100%{
+        border-bottom-width: 20px;
+        border-color: var(--text-gradient-cyan);
+    }
+}

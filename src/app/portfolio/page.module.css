@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    gap : 30px;
+    flex:1;
+}
+.container h1{
+    font-size: 70px;
+}
+.galleryConatiner{
+    display: flex;
+    gap : 20px ;
+    flex-direction: column;
+}
+.gallery{
+    display: flex;
+    gap : 30px;
+    flex-flow: row;
+    overflow: scroll;
+    scroll-snap-stop: normal;
+    scroll-snap-type: x mandatory;
+}
+
+.gallery::-webkit-scrollbar{
+    display: none;
+}
+.gallery::-webkit-scrollbar-thumb{
+    display: none;
+}
+.gallery::-webkit-scrollbar{
+    display: none;
+}
+@media(max-width : 760px){
+    .container{
+        max-width: 100vw;
+    }
+}
