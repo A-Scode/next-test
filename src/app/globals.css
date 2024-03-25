@@ -9,8 +9,8 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: rgb(41, 41, 41);
-  color : white;
+  background-color: var(--background-color);
+  color : var(--font-color-white);
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -19,8 +19,7 @@ a{
   text-decoration: none;
   color:  inherit;
 }
-
-*{
+:root{
   --background-green : rgb(0, 167, 0);
   --font-color-black : black;
   --font-color-white : white;
@@ -29,6 +28,7 @@ a{
   --background-color: rgb(41, 41, 41)
 
 }
+
 div{
   padding: 10px;
 }
@@ -49,4 +49,7 @@ div{
 }
 img{
   object-fit: cover;
+}
+button{
+  user-select: none;
 }

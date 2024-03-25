@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
 }
-.mainContainer div{
+.mainContainer>li>ul>div{
     display: flex;
     align-items: center;
     align-self: flex-end;

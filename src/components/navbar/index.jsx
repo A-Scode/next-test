@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import styles from './navbar.module.css'
 import Button from '../button'
+import DarkModeToggle from '../darkModeToggle'
 
 const links = [
     {
@@ -33,13 +34,12 @@ const links = [
 ]
 
 const Navbar = () => {
-    console.log("this is SSR")
-    console.log(styles.mainContainer)
   return (
     <div className={styles.mainContainer}>
       <Link href={'/'}><h2> NextApp</h2> </Link>
       <div>
         <li>
+            <ul><DarkModeToggle /></ul>
             {links.map(item=><ul key={item.id}><Link href={item.route}>{item.name}</Link></ul>)}
             <ul><Button onClick={()=>console.log("logout")} url="/" >Logout</Button></ul>
         </li>

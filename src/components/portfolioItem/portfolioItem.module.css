@@ -14,9 +14,12 @@
     bottom: 10px;
     right: 10px;
     font-size: 30px;
+    text-shadow: 0 0 10px var(--font-color-black);
+
 }
 .portfolio:hover .title{
     color: var(--background-green);
+    text-shadow: none;
 }
 
 .portfolio:active{

@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    width: 52px;
+    height: 26px;
+    padding: 1px;
+    border : 2px solid var(--font-color-white);
+    border-radius: 26px;
+    justify-content: space-evenly;
+    align-self: center !important;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+.container div{
+    height: 20px;
+    width: 20px;
+    font-size: 15px;
+    border-radius: 20px;
+    padding: 0%;
+}
+.container .ball{
+    position: absolute;
+    background-color: var(--font-color-white);
+}
+.toggle_light{
+    transform: translateX(-13px);
+
+}
+.toggle_dark{
+    transform: translateX(13px);
+
+}

@@ -39,6 +39,10 @@
     color : var(--front-color-white)
 }
 
+.contact > input:focus, .contact>textarea:focus{
+    box-shadow: 0 0 0 2px var(--background-green);
+}
+
 @media (max-width : 760px){
     .image{
         display: none;
