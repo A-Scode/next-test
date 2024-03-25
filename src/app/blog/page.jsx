@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
 
 const blogs = [
   {
@@ -41,7 +42,20 @@ const blogs = [
   },
 ];
 
-const Blog = () => {
+const getBlogs = async()=> {
+  // default static fetch
+  const data = await fetch("https://jsonplaceholder.typicode.com/posts",
+  {
+    cache:'no-cache'
+  });
+  return data.json()
+
+
+}
+
+const Blog = async () => {
+  const data = await getBlogs();
+  console.log(data)
   return (
     <div className={styles.container}>
       <div className={styles.blogsContainer}>
