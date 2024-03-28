@@ -3,9 +3,6 @@ import styles from './page.module.css'
 import Image from 'next/image'
 
 const NotFound = ({error , reset}) => {
-
-  console.log(error)
-
   return (
     <div className={styles.container} style={{flexDirection:'column'}}>
       <Image src='/error.svg' height={300} width={400} />

@@ -1,5 +1,5 @@
 .container{
-    max-width: 1000px;
+    max-width: min(100vw,1000px);
     display: flex;
     flex-direction: column;
     gap : 60px;
@@ -41,9 +41,6 @@
 }
 
 @media(max-width : 760px){
-    .container{
-        max-width: 100vw;
-    }
     .second{
         display: none;
     }

@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import styles from './page.module.css'
-import ThemeContextProvider from "../../context/themeContext";
+import ThemeContextProvider from "@/context/themeContext";
 
 const inter = Inter({ subsets: ["cyrillic"] });
 
