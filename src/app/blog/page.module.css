@@ -40,13 +40,17 @@
     box-shadow: 0 0 10px 0 var(--background-green);
 }
 
+.image > img{
+    border-radius: 5px;
+}
+
 @media (max-width : 760px){
     .blogData{
         flex-direction: column;
         width: min(calc(100vw - 30px) , 400px);
     }
     .image{
-        max-width: min(calc(100vw - 30px) , 400px);
+        max-width: min(calc(100vw - 40px) , 390px);
         align-self: center;
     }
 }

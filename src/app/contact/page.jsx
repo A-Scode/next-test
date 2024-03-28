@@ -4,6 +4,10 @@ import Spinner from '@/components/spinner'
 import Button from '@/components/button'
 import Image from 'next/image'
 
+export const metadata = {
+  title : "Contact Us",
+  description : "This is contact page for NextApp"
+}
 
 const Contanct = () => {
   return (

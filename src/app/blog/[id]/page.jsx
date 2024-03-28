@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './page.module.css'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
 const data = {
   heading : "Effect of blockchain on our lives",
@@ -16,7 +17,18 @@ const getData = async(id)=>{
     revalidate : 10
   }})
 
+  if ( !data.ok) return notFound()
+
   return data.json()
+}
+
+export const generateMetadata = async ({ params })=>{
+  const data  = await getData(params.id);
+
+  return {
+    title : data.heading,
+    description : data.description,
+  }
 }
 
 const BlogPost = async ({params}) => {

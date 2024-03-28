@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import styles from './page.module.css'
 import ThemeContextProvider from "@/context/themeContext";
+import AuthSessionProvider from "@/components/authProvider";
 
 const inter = Inter({ subsets: ["cyrillic"] });
 
@@ -20,11 +21,13 @@ export default function RootLayout({ children }) {
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className={inter.className}>
         <ThemeContextProvider>
-        <Navbar />
-          <div className={styles.pageContainer}>
-            {children}
-          </div>
-        <Footer />
+          <AuthSessionProvider>
+            <Navbar />
+              <div className={styles.pageContainer}>
+                {children}
+              </div>
+            <Footer />
+          </AuthSessionProvider>
         </ThemeContextProvider>
         </body>
     </html>
