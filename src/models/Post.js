@@ -21,8 +21,13 @@ const postSchema = mongoose.Schema({
     content : {
         type : String,
         required : true,
-    }
+    },
+    image : {
+        type : String,
+        required : true,
+    },
+
     
 })
 
-export default mongoose.model("Post" , postSchema)
+export default mongoose.models.Post || mongoose.model("Post" , postSchema)

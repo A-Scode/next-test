@@ -44,11 +44,12 @@ const blogs = [
 
 const getBlogs = async()=> {
   // default static fetch
-  const data = await fetch("https://jsonplaceholder.typicode.com/posts",
+  const data = await fetch(`${process.env.API_URL}/posts`,
   {
     cache:'no-cache'
   });
-  return data.json()
+  console.log(data.body)
+  return data.json();
 
 
 }
@@ -59,7 +60,7 @@ const Blog = async () => {
   return (
     <div className={styles.container}>
       <div className={styles.blogsContainer}>
-        {blogs.map(item=><BlogItem {...item} />)}
+        {data.map((item,index)=><BlogItem {...item} key={index} />)}
       </div>
     </div>
   );
@@ -67,7 +68,7 @@ const Blog = async () => {
 
 const BlogItem = (props) => {
   return (
-    <Link href={props.url}>
+    <Link href={`/blog/${props._id}`}>
       <div className={styles.blogData}>
         <div className={styles.image}>
           <Image src={props.image} fill />

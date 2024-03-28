@@ -1,6 +1,7 @@
 .container{
     display: flex;
     max-width: 1000px;
+    width: min(800px , calc(100vw - 20px));
     align-self: center;
     flex-direction: column;
     gap: 50px;

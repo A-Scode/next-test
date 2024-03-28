@@ -11,8 +11,8 @@
 }
 .image{
     position: relative;
-    flex :1;
-    min-width: 300px;
+    height: 200px;
+    width: 400px;
 
 }
 .content{
@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+    width: min(1000px , calc(100vw - 20px));
 }
 .content p{
     display: -webkit-box;
@@ -42,8 +43,10 @@
 @media (max-width : 760px){
     .blogData{
         flex-direction: column;
+        width: min(calc(100vw - 30px) , 400px);
     }
     .image{
-        min-height: 180px;
+        max-width: min(calc(100vw - 30px) , 400px);
+        align-self: center;
     }
 }

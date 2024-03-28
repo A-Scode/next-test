@@ -11,8 +11,17 @@ const data = {
   content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut nobis cum aliquam nostrum laborum deleniti iste fuga est eius sunt nulla distinctio delectus, dolorum aspernatur molestiae quasi eligendi, minus ducimus blanditiis aperiam sit ea laboriosam labore. Non enim ipsam temporibus numquam fugiat eligendi voluptates, laudantium perspiciatis corporis, maxime saepe vel! Eum aliquam, possimus maxime, eligendi rem animi minima harum sunt qui earum facilis voluptas similique recusandae placeat? Facere laborum cumque dolores debitis, similique corrupti explicabo! In enim adipisci aliquam, libero quibusdam quasi eligendi iusto consectetur culpa, sunt unde, voluptatem aspernatur obcaecati perferendis magni asperiores minima praesentium velit eos cum?",
 
 }
+const getData = async(id)=>{
+  const data = await fetch(`${process.env.API_URL}/posts/${id}` , {next:{
+    revalidate : 10
+  }})
 
-const BlogPost = () => {
+  return data.json()
+}
+
+const BlogPost = async ({params}) => {
+  let {id} = params;
+  const data = await getData(id);
   return (
     <div className={styles.container}>
       <div className={styles.metadata}>
