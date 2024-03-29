@@ -38,3 +38,11 @@
     outline: none;
     color : var(--front-color-white)
 }
+.error{
+    color : red;
+    padding: 20px;
+    width: min(calc(100vw - 20px) , 400px);
+    background-color: rgba(255, 0, 0, 0.138);
+    border-radius: 10px;
+    border: 1px solid red;
+}
