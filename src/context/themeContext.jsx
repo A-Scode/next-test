@@ -10,6 +10,7 @@ const ThemeContextProvider = ({children}) => {
     useEffect( ()=>{
         if(mode === "dark"){
             document.querySelector(':root').style.setProperty('--background-green','rgb(0, 167, 0)')
+            document.querySelector(':root').style.setProperty('--background-green-fade','rgba(0, 167, 0, 0.236)')
             document.querySelector(':root').style.setProperty('--font-color-black','black')
             document.querySelector(':root').style.setProperty('--font-color-white','white')
             document.querySelector(':root').style.setProperty('--text-gradient-yello','rgb(255, 191, 0)')
@@ -18,6 +19,7 @@ const ThemeContextProvider = ({children}) => {
             // console.log('done')
         }else{
             document.querySelector(':root').style.setProperty('--background-green','rgb(0, 166, 255)')
+            document.querySelector(':root').style.setProperty('--background-green-fade','rgba(0, 166, 255, 0.248)')
             document.querySelector(':root').style.setProperty('--font-color-black','white')
             document.querySelector(':root').style.setProperty('--font-color-white','black')
             document.querySelector(':root').style.setProperty('--text-gradient-yello','rgb(255, 191, 0)')

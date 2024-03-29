@@ -2,16 +2,19 @@
     max-width: min(100vw,1000px);
     display: flex;
     flex-wrap: wrap-reverse;
+    gap : 50px
 }
 .userPosts{
     display: flex;
     flex-direction: column;
     flex : 1;
+    flex-basis: 400px;
 }
 .createPost{
     display: flex;
     flex-direction: column;
     flex : 1;
+    flex-basis: 400px;
     gap: 50px;
     align-items: center;
 }
@@ -46,4 +49,20 @@
     background-color: var(--background-green);
     color: var(--font-color-white);
     justify-content: center;
+}
+.error{
+    color : red;
+    padding: 20px;
+    width: min(calc(100vw - 20px) , 400px);
+    background-color: rgba(255, 0, 0, 0.138);
+    border-radius: 10px;
+    border: 1px solid red;
+}
+.info{
+    color : var(--background-green);
+    padding: 20px;
+    width: min(calc(100vw - 20px) , 400px);
+    background-color: var(--background-green-fade);
+    border-radius: 10px;
+    border: 1px solid var(--background-green);
 }
