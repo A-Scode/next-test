@@ -1,3 +1,49 @@
 .container{
-    
+    max-width: min(100vw,1000px);
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+.userPosts{
+    display: flex;
+    flex-direction: column;
+    flex : 1;
+}
+.createPost{
+    display: flex;
+    flex-direction: column;
+    flex : 1;
+    gap: 50px;
+    align-items: center;
+}
+.createPost form{
+    display: flex;
+    flex-direction: column;
+    flex : 1;
+}
+.post > input, .post>textarea {
+    flex:1;
+    padding : 10px;
+    border-radius: 5px;
+    min-width: min(500px , calc(100vw - 20px));
+    font-size: 18px;
+    background-color: var(--background-color);
+    border: 1px solid var(--background-green);
+    outline: none;
+    color : var(--font-color-white);
+    resize: vertical;
+}
+
+.post > input:focus, .post>textarea:focus{
+    box-shadow: 0 0 0 2px var(--background-green);
+}
+.post{
+    display: flex;
+    flex-direction: column;
+    gap : 30px;
+}
+.postButton{
+    max-width: 300px;
+    background-color: var(--background-green);
+    color: var(--font-color-white);
+    justify-content: center;
 }

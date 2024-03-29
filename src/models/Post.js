@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
+import { userSchema } from "./User";
 
 
-const postSchema = mongoose.Schema({
+export const postSchema = mongoose.Schema({
     heading : {
         type : String,
         required : true,
@@ -10,12 +11,17 @@ const postSchema = mongoose.Schema({
         type : String,
         required : true,
     },
-    username : {
-        type : String,
-        required : true,
-    },
-    profile_photo : {
-        type : String,
+    user : { 
+        type: {
+            name :{
+                type : String,
+                required : true,
+            },
+            email : {
+                type : String,
+                required : true,
+            }
+        },
         required : true,
     },
     content : {
@@ -30,4 +36,4 @@ const postSchema = mongoose.Schema({
     
 })
 
-export default mongoose.models.Post || mongoose.model("Post" , postSchema)
+export default mongoose.models.Posts || mongoose.model("Posts" , postSchema)

@@ -41,8 +41,10 @@ const BlogPost = async ({params}) => {
           <h1>{data.heading}</h1>
           <p>{data.description}</p>
           <div className={styles.user}>
-            <Image src={data.profile_photo} width={50} height={50} />
-            <h4>{data.username}</h4>
+            <Image src={
+              `https://api.dicebear.com/8.x/fun-emoji/png?seed=${data.user.email}`
+            } width={50} height={50} />
+            <h4>{data.user.name}</h4>
           </div>
         </div>
         <div className={styles.image}>

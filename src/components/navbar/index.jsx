@@ -49,8 +49,6 @@ const Navbar = () => {
             {(session.status==='authenticated')?<ul><Button className={styles.button}
             onClick={signOut} >
               <Image width={30} height={30} src={
-                session.data.user.image 
-                || 
                 `https://api.dicebear.com/8.x/fun-emoji/png?seed=${session.data.user.email}`
                 } />
               Logout
