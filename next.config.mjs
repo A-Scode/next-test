@@ -4,6 +4,7 @@ const nextConfig = {
         domains:[
             'images.pexels.com',
             'api.dicebear.com',
+            "lh3.googleusercontent.com",
         ]
     }
 };
