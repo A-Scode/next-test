@@ -2,23 +2,37 @@
 import React, { useState } from 'react'
 import styles from './page.module.css'
 import Button from '@/components/button'
-import { signIn } from 'next-auth/react'
+import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import Spinner from '@/components/spinner'
 
 const Login = () => {
   const [err , setErr ] = useState("");
+  const router = useRouter();
+  const session = useSession();
 
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault();
-    console.log(e);
+    let email = e.target[0].value;
+    let password = e.target[1].value;
+
+    signIn("credentials" , {email , password})
+
   }
+  if ( session.status === 'loading') return (<Spinner />)
+
+  if ( session.status === 'authenticated' ) return router.push('/dashboard')
+
+
+
   return (
     <div className={styles.container}>
       <h1>Login</h1>
-      <form name="register" onSubmit={handleSubmit} className={styles.form}>
-        <input  name="register" type="email" placeholder="Email" id="email" />
-        <input  name="register" type="password" placeholder="Password" id="password" />
+      <form name="login" onSubmit={handleSubmit} className={styles.form}>
+        <input  name="login" type="email" placeholder="Email" id="email" />
+        <input  name="login" type="password" placeholder="Password" id="password" />
       {
         err && (
           <div className={styles.error}>
@@ -26,7 +40,7 @@ const Login = () => {
           </div>
         )
       }
-        <Button  name="register" type="submit" className={styles.buttonClass}>
+        <Button  name="login" type="submit" className={styles.buttonClass}>
           Login
         </Button>
 

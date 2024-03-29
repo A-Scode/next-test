@@ -4,7 +4,7 @@ import React from 'react'
 import styles from './navbar.module.css'
 import Button from '../button'
 import DarkModeToggle from '../darkModeToggle'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 
 const links = [
@@ -46,13 +46,17 @@ const Navbar = () => {
         <li>
             <ul><DarkModeToggle /></ul>
             {links.map(item=><ul key={item.id}><Link href={item.route}>{item.name}</Link></ul>)}
-            {(session.status==='authenticated')?<ul><Button className={styles.button} onClick={()=>console.log("logout")} url="/" >
-              <Image width={30} height={30} src={session.data.user.image} />
+            {(session.status==='authenticated')?<ul><Button className={styles.button}
+            onClick={signOut} >
+              <Image width={30} height={30} src={
+                session.data.user.image 
+                || 
+                `https://api.dicebear.com/8.x/fun-emoji/png?seed=${session.data.user.email}`
+                } />
               Logout
               </Button></ul>:
             <ul>
               <Button className={styles.button} 
-              onClick={()=>console.log("logout")} 
               disabled={session.status==='loading'} url="/dashboard/login" >
                 Login
                 </Button>
