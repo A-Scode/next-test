@@ -46,12 +46,14 @@ const Navbar = () => {
         <li>
             <ul><DarkModeToggle /></ul>
             {links.map(item=><ul key={item.id}><Link href={item.route}>{item.name}</Link></ul>)}
-            {(session.status==='authenticated')?<ul><Button onClick={()=>console.log("logout")} url="/" >
+            {(session.status==='authenticated')?<ul><Button className={styles.button} onClick={()=>console.log("logout")} url="/" >
               <Image width={30} height={30} src={session.data.user.image} />
               Logout
               </Button></ul>:
             <ul>
-              <Button onClick={()=>console.log("logout")} disabled={session.status==='loading'} url="/dashboard/login" >
+              <Button className={styles.button} 
+              onClick={()=>console.log("logout")} 
+              disabled={session.status==='loading'} url="/dashboard/login" >
                 Login
                 </Button>
               </ul>}

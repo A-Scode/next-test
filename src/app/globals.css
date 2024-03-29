@@ -52,4 +52,6 @@ img{
 }
 button{
   user-select: none;
+  background-color: var(--font-color-black);
+  color : var(--font-color-white);
 }

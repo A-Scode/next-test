@@ -23,3 +23,6 @@
     align-items: center;
     align-self: flex-end;
 }
+.button{
+    border-radius: 30px !important ;
+}
