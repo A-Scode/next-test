@@ -17,3 +17,18 @@ export const GET = async( request , {params}) =>{
         return new NextResponse( "some error occured", {status : HttpStatusCode.InternalServerError})
     }
 }
+
+export const DELETE = async( request , {params}) =>{
+
+    try{
+        let {id} = params
+        await connect();
+        await Post.findByIdAndDelete(id);
+        // console.log(id , post)
+        return new NextResponse("Post Deleted Succesfully" , {status : HttpStatusCode.Ok})
+
+    }catch(e){
+        console.log(e);
+        return new NextResponse( "some error occured", {status : HttpStatusCode.InternalServerError})
+    }
+}

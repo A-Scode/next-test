@@ -6,14 +6,9 @@ import Spinner from '@/components/spinner'
 import Button from '@/components/button'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import useSWR from 'swr'
+import Link from 'next/link'
 
-async function getUserPosts(email){
-  let posts = await fetch(`/api/posts?email=${email}` , {
-    method :'GET',
-    next : 'no-store'
-  })
-  return posts
-}
 
 const Dashboard = () => {
   const session = useSession();
@@ -23,19 +18,19 @@ const Dashboard = () => {
   const [info , setInfo] = useState("");
   const [userPosts , setUserPosts] = useState([]);
 
-  useEffect(()=>{
-    getUserPosts(session?.data?.user?.email).then(async(res)=>{
-      let value = await res.json();
-      setUserPosts(value)
-    })
-  } ,[session?.data?.user])
+  const fetcher =(...args)=> fetch(...args).then(res=>res.json());
+
+  const { data, mutate, error, isLoading } = useSWR(
+    `/api/posts?email=${session?.data?.user?.email}`,
+    fetcher,
+  );
+
 
 
   async function handleSubmit(e){
     setInfo("");
     setErr("");
     e.preventDefault();
-    console.log(e);
 
     let heading = e.target[0].value;
     let description = e.target[1].value;
@@ -53,21 +48,36 @@ const Dashboard = () => {
           heading , description , image , content, user
         })
       }).then(()=>{
-        e.target[0].value = "";
-        e.target[1].value = "";
-        e.target[2].value = "";
-        e.target[3].value = "";
+        e.target.reset();
         setInfo("Successfully Posted")
+        mutate()
       }).catch((e)=>{
         setErr("Some Error Occured");
         console.log(e)
       })
+
       
     }catch(err){
       setErr("Some Error Occured");
     }
     
   }
+
+
+  function handleDelete(e,id){
+    e.preventDefault();
+
+    fetch(`/api/posts/${id}` , {
+      method : 'DELETE',
+    }).then(()=>{
+      mutate();
+    }).catch((e)=>{
+      console.log(e)
+    })
+
+  }
+
+
 
 
   if (session.status === "loading") return(
@@ -80,9 +90,9 @@ const Dashboard = () => {
     <div className={styles.container}>
       <div className={styles.userPosts}>
         <h1>Your Posts</h1>
-        {userPosts.length ? (
-          userPosts.map((item) => (
-            <UserPost key={item._id}
+        {data && data.length ? (
+          data.map((item) => (
+            <UserPost onClick={(e)=>handleDelete(e,item._id)} key={item._id}
             {...item}
              />
           ))
@@ -121,7 +131,9 @@ const Dashboard = () => {
 
 
 const UserPost = (props)=>{
+  
   return (
+    <Link href={`/blog/${props._id}`}>
     <div className={styles.postContainer}>
       <div className={styles.image}>
         <Image alt="blog" fill src={props.image} />
@@ -133,11 +145,12 @@ const UserPost = (props)=>{
         <div className={styles.description}>
           {props.description}
         </div>
-        <Button className={styles.delete} >
+        <Button onClick={props.onClick} className={styles.delete} >
           Delete
         </Button>
       </div>
     </div>
+    </Link>
   )
 }
 
