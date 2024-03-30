@@ -1,41 +1,39 @@
-## Getting Started
+<style>
+    img {
+        width : 350px;
+        border-radius : 10px;
+    }
+</style>
+
+# Live link 🌐
+
+### [NextApp](https://next-app-git-main-shouryaraj-singhs-projects.vercel.app/)
+
+## Launch Locally 🚀
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+### .env file 🌲
+```
+MONGO=""
+API_URL=http://localhost:3000/api
+GOOGLE_CLIENT_SECRET=""
+GOOGLE_CLIENT_ID=""
+
+NEXTAUTH_SECRET=""
+NEXTAUTH_URL=http://localhost:3000
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
 ## ScreenShots
-### Home
-![home](public/Home.png)
+![home](public/screenshot/home.png)
+![dashboard](public/screenshot/dashboard.png)
+![portfolio](public/screenshot/portfolio.png)
+![portfolio-work](public/screenshot/portfolio-works.png)
+![login](public/screenshot/login.png)
+![blog-page](public/screenshot/blog-page.png)
 
-### About
-![about page](public/about.png)
-
-### Portfolio
-![portfolio](public/portfolio.png)
-
-### Portfolio Works
-![protfolio works](public/portfolio_work.png)
-
-### Contact
-![contact](public/contact.png)
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
