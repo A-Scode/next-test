@@ -20,13 +20,13 @@ a{
   color:  inherit;
 }
 :root{
-  --background-green : rgb(0, 167, 0);
-  --font-color-black : black;
-  --font-color-white : white;
+  --background-green : rgb(0, 166, 255) ;
+  --font-color-black : white;
+  --font-color-white : black;
   --text-gradient-yellow : rgb(255, 191, 0);
-  --text-gradient-cyan : rgb(0, 166, 255);
-  --background-color: rgb(41, 41, 41);
-  --background-green-fade  : rgba(0, 167, 0, 0.236);
+  --text-gradient-cyan : rgb(0, 167, 0);
+  --background-color: white;
+  --background-green-fade  : rgba(0, 166, 255, 0.248);
 
 }
 

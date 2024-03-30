@@ -21,7 +21,7 @@ const DarkModeToggle = () => {
     <div onClick={inverseToggle}  className={styles.container}>
       <div>🌙</div>
       <div>🌞</div>
-      <div className={toggle?`${styles.ball}  ${styles.toggle_dark}`:`${styles.ball}  ${styles.toggle_light}`}></div>
+      <div className={toggle?`${styles.ball}  ${styles.toggle_light}`:`${styles.ball}  ${styles.toggle_dark}`}></div>
     </div>
   )
 }
