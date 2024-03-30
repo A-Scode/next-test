@@ -1,10 +1,3 @@
-<style>
-    img {
-        width : 350px;
-        border-radius : 10px;
-    }
-</style>
-
 # Live link 🌐
 
 ### [NextApp](https://next-app-git-main-shouryaraj-singhs-projects.vercel.app/)
