@@ -71,7 +71,7 @@ const BlogItem = (props) => {
     <Link href={`/blog/${props._id}`}>
       <div className={styles.blogData}>
         <div className={styles.image}>
-          <Image src={props.image} fill />
+          <Image alt="blog" src={props.image} fill />
         </div>
         <div className={styles.content}>
           <h3>{props.heading}</h3>

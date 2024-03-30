@@ -98,7 +98,7 @@ const Dashboard = () => {
           ))
         ) : (
           <div className={styles.noPost}>
-            <h1 align="center">You Haven't Published any Posts yet</h1>
+            <h1 align="center">You Haven&apos;t Published any Posts yet</h1>
             <Image priority alt="no-post" width={200} height={200} src="/no-post.svg" />
           </div>
         )}

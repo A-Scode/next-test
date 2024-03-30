@@ -31,9 +31,9 @@ const Portfolio = () => {
       <div className={styles.galleryConatiner}>
         <h3>Choose a gallery</h3>
         <div className={styles.gallery}>
-          {gallery.map(item=>(
+          {gallery.map((item ,index)=>(
 
-            <PortfolioItem url={item.url} image={item.image} label={item.label} />
+            <PortfolioItem key={index} url={item.url} image={item.image} label={item.label} />
           ))
 
           }

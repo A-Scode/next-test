@@ -15,7 +15,7 @@ const DarkModeToggle = () => {
     const inverseToggle = useCallback(()=>{
         toggleTheme();
         setToggle(!toggle);
-    } , [toggle])
+    } , [toggle , toggleTheme])
 
   return (
     <div onClick={inverseToggle}  className={styles.container}>

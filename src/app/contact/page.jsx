@@ -12,7 +12,7 @@ export const metadata = {
 const Contanct = () => {
   return (
     <div className={styles.container}>
-      <h1 align="center">Let's Keep In Touch</h1>
+      <h1 align="center">Let&apos;s Keep In Touch</h1>
       <div style={{display:'flex' ,alignItems:"center"}}>
       <div className={styles.image}>
         <Image alt="pickachu" src="/pickachu_phone.svg" fill={true} />
