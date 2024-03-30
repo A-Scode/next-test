@@ -39,14 +39,21 @@ const handler =  NextAuth({
     error : '/dashboard/login'
   },
   callbacks :{
-    signIn : async({ user, account, profile, email, credentials })=>{
-      console.log("callback",credentials)
+    signIn : async function ({ user, account, profile, email, credentials }){
       await connect();
       try{
       if (account.provider === 'google'){
-        let user = await User.findOne({email  : user.email})
-        if (user) return true;
-        else return false;
+        let existingUser = await User.findOne({email  : user.email})
+        if (existingUser) return true;
+        else {
+          const hashedpass = bcrypt.genSaltSync(3)
+          const newUser = new User({
+            name:user.name , email:user.email ,
+            password : hashedpass,
+        })
+        await newUser.save();
+        return true;
+        };
       }
       return true;
 

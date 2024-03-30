@@ -5,6 +5,8 @@ import Button from '@/components/button'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import Error from 'next/error'
+import Image from 'next/image'
+import { signIn } from 'next-auth/react'
 
 const Register = () => {
 
@@ -63,7 +65,7 @@ const Register = () => {
 
       </form>
 
-      <hr width="50%" />
+     
     </div>
   )
 }
