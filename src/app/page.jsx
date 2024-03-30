@@ -14,7 +14,7 @@ export default function Home() {
         <Button style={{backgroundColor : 'var(--background-green)' , color:'white'}} url="/portfolio" >See Our Works</Button>
       </div>
       <div className={styles.imgContainer}>
-        <Image style={{objectFit:"contain"}} fill={true} src={pickachu} />
+        <Image alt="pickachu" style={{objectFit:"contain"}} fill={true} src={pickachu} />
       </div>
     </div>
   );

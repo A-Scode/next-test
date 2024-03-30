@@ -1,7 +1,7 @@
 .container{
     display: flex;
     max-width: 1000px;
-    width: min(800px , calc(100vw - 20px));
+    
     align-self: center;
     flex-direction: column;
     gap: 50px;
@@ -10,18 +10,22 @@
 .image{
     display: flex;
     position: relative;
-    min-width: 300px;
+    min-width: min(calc(100vw - 10px) ,300px);
     flex:1;
     aspect-ratio: 16 / 9;
     margin: auto;
 }
+.image img{
+    border-radius: 10px;
+}
+
 .metadata{
     display: flex;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     gap: 30px;
 }
 .info{
-    max-width: 500px;
+    width: min(calc(100vw - 10px) ,300px);
     display: flex;
     flex-direction: column;
     gap : 20px;
@@ -36,7 +40,7 @@
 }
 .container>p{
     padding: 20px;
-    font-size: 25px;
+    font-size: 1.3rem;
     align-self: center;
     max-width: 800px;
 }

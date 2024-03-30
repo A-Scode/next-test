@@ -12,7 +12,7 @@ const About = () => {
   return (
     <div className={styles.container}>
       <div className={styles.imageConatiner}>
-        <Image src="/bayleaf.svg" fill={true} />
+        <Image alt="bayleaf" src="/bayleaf.svg" fill={true} />
         <div className={styles.imgHeading}>
           <h1>Digital Storytellers</h1>
           <h3>Handcrafting award winning digital experiences</h3>

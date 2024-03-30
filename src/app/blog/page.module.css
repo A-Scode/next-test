@@ -14,9 +14,10 @@
 .image{
     position: relative;
     height: 200px;
-    width: 400px;
+    min-width: 400px;
 
 }
+
 .content{
     flex-shrink: 1;
     display: flex;

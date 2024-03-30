@@ -3,10 +3,14 @@ import Post from "@/models/Post";
 import { NextResponse } from "next/server";
 import { HttpStatusCode } from "axios";
 
-export const GET = async()=>{
+export const GET = async(request)=>{
+    let url = new URL(request.url)
+    let useremail = url.searchParams.get('email')
     try{
         await connect();
-        var posts = await Post.find();
+        if(useremail) var posts = await Post.find({"user.email" : useremail});
+        else var posts = await Post.find();
+        console.log(posts)
         posts = posts.map(item =>{
             if(item.user.password) delete item.user.password
             return item

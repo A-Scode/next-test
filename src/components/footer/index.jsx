@@ -7,10 +7,10 @@ const Footer = () => {
     <div className={styles.footerContainer}>
       <div>©️NextApp 2024 Mar 21. All rights reserved</div>
       <div className={styles.iconContainer}>
-        <Image data-shadow="blue" src="/facebook.png" width={20} height={20} />
-        <Image src="/instagram.png" width={20} height={20} />
-        <Image src="/github.png" width={20} height={20} />
-        <Image src="/linkedin.png" width={20} height={20} />
+        <Image data-shadow="blue" alt="facebook" src="/facebook.png" width={20} height={20} />
+        <Image alt="instagram" src="/instagram.png" width={20} height={20} />
+        <Image alt="github" src="/github.png" width={20} height={20} />
+        <Image alt="linkedin" src="/linkedin.png" width={20} height={20} />
       </div>
     </div>
   )

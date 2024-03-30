@@ -5,7 +5,7 @@ import Image from 'next/image'
 const NotFound = ({error , reset}) => {
   return (
     <div className={styles.container} style={{flexDirection:'column'}}>
-      <Image src='/error.svg' height={300} width={400} />
+      <Image src='/error.svg' height={300} width={400} alt="error" />
       <h2 align="center">Not Found</h2>
     </div>
   )

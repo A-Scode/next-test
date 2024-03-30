@@ -1,11 +1,19 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import { useSession } from 'next-auth/react'
 import Spinner from '@/components/spinner'
 import Button from '@/components/button'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
+async function getUserPosts(email){
+  let posts = await fetch(`/api/posts?email=${email}` , {
+    method :'GET',
+    next : 'no-store'
+  })
+  return posts
+}
 
 const Dashboard = () => {
   const session = useSession();
@@ -13,10 +21,15 @@ const Dashboard = () => {
 
   const [err , setErr] = useState("");
   const [info , setInfo] = useState("");
+  const [userPosts , setUserPosts] = useState([]);
 
-  console.log(session)
+  useEffect(()=>{
+    getUserPosts(session?.data?.user?.email).then(async(res)=>{
+      let value = await res.json();
+      setUserPosts(value)
+    })
+  } ,[session?.data?.user])
 
-  const userPosts = [];
 
   async function handleSubmit(e){
     setInfo("");
@@ -54,7 +67,6 @@ const Dashboard = () => {
       setErr("Some Error Occured");
     }
     
-
   }
 
 
@@ -67,19 +79,27 @@ const Dashboard = () => {
   return (
     <div className={styles.container}>
       <div className={styles.userPosts}>
+        <h1>Your Posts</h1>
         {userPosts.length ? (
-          userPosts.map((item) => <></>)
+          userPosts.map((item) => (
+            <UserPost key={item._id}
+            {...item}
+             />
+          ))
         ) : (
-          <h1 align="center">You Haven't Published any Posts yet</h1>
+          <div className={styles.noPost}>
+            <h1 align="center">You Haven't Published any Posts yet</h1>
+            <Image priority alt="no-post" width={200} height={200} src="/no-post.svg" />
+          </div>
         )}
       </div>
       <div className={styles.createPost}>
         <h1>Create New Post</h1>
         <form name="post" className={styles.post} onSubmit={handleSubmit}>
-          <input name="post" placeholder="Title" type="text" />
-          <input name="post" placeholder="Description" type="text" />
-          <input name="post" placeholder="Image URL" type="url" />
-          <textarea name="post" placeholder="Content"></textarea>
+          <input required name="post" placeholder="Title" type="text" />
+          <input required name="post" placeholder="Description" type="text" />
+          <input required name="post" placeholder="Image URL" type="url" />
+          <textarea required name="post" placeholder="Content"></textarea>
           <Button name="post" type="submit" className={styles.postButton}>
             Post
           </Button>
@@ -100,16 +120,22 @@ const Dashboard = () => {
 }
 
 
-const UserPost = ()=>{
+const UserPost = (props)=>{
   return (
     <div className={styles.postContainer}>
       <div className={styles.image}>
-        <Image fill  />
+        <Image alt="blog" fill src={props.image} />
       </div>
-      <div className={styles.info}>
-        <div className={styles.heading}></div>
-        <div className={styles.description}></div>
-        <div className={styles.delete}></div>
+      <div className={styles.metadata}>
+        <div className={styles.heading}>
+          <h3>{props.heading}</h3>
+        </div>
+        <div className={styles.description}>
+          {props.description}
+        </div>
+        <Button className={styles.delete} >
+          Delete
+        </Button>
       </div>
     </div>
   )

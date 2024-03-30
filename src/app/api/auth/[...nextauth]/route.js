@@ -15,13 +15,14 @@ const handler =  NextAuth({
       async authorize(credentials){
         await connect();
         try{
-          let user = await User.findOne({email : credentials.email});
-  
+          const user = await User.findOne({email : credentials.email});
+          
           if(user){
             const isPassword = bcrypt.compare(credentials.password , user.password)
             if (!isPassword){
               throw new Error("Incorrect password")
             }else{
+              console.log("authorize", true  )
               return user
             }
           }else{
@@ -36,6 +37,25 @@ const handler =  NextAuth({
   ],
   pages : {
     error : '/dashboard/login'
+  },
+  callbacks :{
+    signIn : async({ user, account, profile, email, credentials })=>{
+      console.log("callback",credentials)
+      await connect();
+      try{
+      if (account.provider === 'google'){
+        let user = await User.findOne({email  : user.email})
+        if (user) return true;
+        else return false;
+      }
+      return true;
+
+      }catch(e){
+        console.log(e);
+        return false;
+      }
+    },
+    
   }
 })
 

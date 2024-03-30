@@ -9,7 +9,7 @@ const PortfolioItem = (props) => {
   return (
     <Link href={props.url}>
         <div className={styles.portfolio}>
-        <Image src={props.image} fill={true} />
+        <Image alt="design" src={props.image} fill={true} />
         <h4 className={styles.title}>{props.label}</h4>
         </div>
     </Link>

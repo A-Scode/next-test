@@ -34,7 +34,7 @@ const CategoryItem = (props)=>{
       )
   let second = (
       <div className={styles.second}>
-        <Image fill src={props.img} />
+        <Image alt="blog" fill src={props.img} />
       </div>
   )
   return (

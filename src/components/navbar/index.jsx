@@ -48,7 +48,7 @@ const Navbar = () => {
             {links.map(item=><ul key={item.id}><Link href={item.route}>{item.name}</Link></ul>)}
             {(session.status==='authenticated')?<ul><Button className={styles.button}
             onClick={signOut} >
-              <Image width={30} height={30} src={
+              <Image alt="profile" width={30} height={30} src={
                 `https://api.dicebear.com/8.x/fun-emoji/png?seed=${session.data.user.email}`
                 } />
               Logout

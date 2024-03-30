@@ -1,17 +1,22 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import Button from '@/components/button'
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Spinner from '@/components/spinner'
 
 const Login = () => {
   const [err , setErr ] = useState("");
   const router = useRouter();
   const session = useSession();
+  const params = useSearchParams();
+  useEffect(()=>{
+    if(params.get('error')) setErr(params.get('error'))
+
+  } , [params])
 
   async function handleSubmit(e){
     e.preventDefault();
@@ -31,8 +36,8 @@ const Login = () => {
     <div className={styles.container}>
       <h1>Login</h1>
       <form name="login" onSubmit={handleSubmit} className={styles.form}>
-        <input  name="login" type="email" placeholder="Email" id="email" />
-        <input  name="login" type="password" placeholder="Password" id="password" />
+        <input required name="login" type="email" placeholder="Email" id="email" />
+        <input required name="login" type="password" placeholder="Password" id="password" />
       {
         err && (
           <div className={styles.error}>
@@ -50,7 +55,7 @@ const Login = () => {
 
       <hr width="50%" />
       <Button className={styles.googleButton} onClick={()=>signIn("google")}>
-        <Image src="/google.svg" height={30} width={30} />
+        <Image alt="google" src="/google.svg" height={30} width={30} />
         Login with Google
         </Button>
 

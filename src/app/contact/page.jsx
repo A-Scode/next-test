@@ -15,7 +15,7 @@ const Contanct = () => {
       <h1 align="center">Let's Keep In Touch</h1>
       <div style={{display:'flex' ,alignItems:"center"}}>
       <div className={styles.image}>
-        <Image src="/pickachu_phone.svg" fill={true} />
+        <Image alt="pickachu" src="/pickachu_phone.svg" fill={true} />
       </div>
       <div className={styles.form}>
         <form className={styles.contact}>

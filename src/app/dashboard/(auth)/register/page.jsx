@@ -45,9 +45,9 @@ const Register = () => {
     <div className={styles.container}>
       <h1>Register</h1>
       <form name="register" onSubmit={handleSubmit} className={styles.form}>
-        <input  name="register" type="text" placeholder="Username" id="username" />
-        <input  name="register" type="email" placeholder="Email" id="email" />
-        <input  name="register" type="password" placeholder="Password" id="password" />
+        <input required  name="register" type="text" placeholder="Username" id="username" />
+        <input required  name="register" type="email" placeholder="Email" id="email" />
+        <input required  name="register" type="password" placeholder="Password" id="password" />
       {
         err && (
           <div className={styles.error}>
