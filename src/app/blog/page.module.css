@@ -9,12 +9,12 @@
     gap: 30px;
     border-radius: 10px;
     border : 1px solid var(--background-green);
-    padding: 20px;
+    padding: 10px;
 }
 .image{
     position: relative;
     height: 200px;
-    min-width: 400px;
+    min-width: min(380px, 100vw - 50px);
 
 }
 
